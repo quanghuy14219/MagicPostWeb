@@ -1,0 +1,367 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  background: gainsboro;
+  min-width: 310px;
+  min-height: 310px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 16px;
+}
+
+textarea {
+  resize: none;
+}
+
+.fh { height: 100%; }
+
+.btn-unstyled { background: transparent; border:0; box-shadow: 0; outline: none; }
+
+.gutterless { margin: 0; }
+.pgutterless { padding: 0; }
+
+.bordered { border: 1px solid; }
+
+.display-inline { display: inline-block; }
+.vmid { vertical-align: middle; }
+
+.no-float { float: none !important; }
+
+.actionable {  
+  cursor: hand;
+  cursor: pointer;
+}
+
+.vcenter {
+  &:before {
+    content: '';
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+    display: inline-block;
+  }
+}
+
+.input-group-separate-btn {
+  padding: 0 0 0 5px;
+}
+
+.notif-alert {
+  position:relative;
+
+  &:after {
+    content: '5';
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    background: orange;
+    min-width: 25px;
+    height: auto;
+    width: auto;
+    border-radius: 20px;
+    padding: 2px 3px;
+    text-align:center;
+    font-size: 87.5%;
+    overflow: hidden;
+    color: #222;
+  }
+}
+
+.tab-pane {
+  padding: 15px;
+
+  label {
+    font-size: 80%;
+  }
+
+}
+
+.nav-tabs li {
+  text-transform: uppercase;
+}
+
+.responsive-tabs {
+}
+
+@media only screen and (max-width: 768px){
+  .responsive-tabs {
+    border-bottom: 0;
+    overflow: hidden;
+    position: relative;
+    background: white;
+
+    &::after {
+      content: "☰";
+      position: absolute;
+      top: 8px;
+      right: 15px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    li {
+      box-shadow: none;
+      white-space: nowrap;
+      text-overflow: elipsis;
+      border: 0;
+      float: none !important;
+      position: absolute;
+      display: block !important; /* One link per "row" */
+
+      a { border: 0 !important; }
+
+    }
+
+    li.active {
+      position: static !important;
+      top:0;
+      left:0;
+    }
+  }
+}
+
+
+
+.filter-area {
+  margin-bottom: 20px;
+}
+
+.filter-container {
+  margin: 15px 0;
+  padding: 15px 0;
+  background: #5bc0de;
+}
+
+#header {
+  width: 100%;
+  height: 60px;
+  background: #333;
+  color: gainsboro;
+  padding: 0px;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index: 1180;
+}
+
+#menuToggle {
+  font-size: 30px;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  margin-right: 10px;
+  background: gainsboro;
+  color: #222;
+
+  @extend .actionable;
+  .fa { line-height: 60px; }
+}
+
+#logo {
+  font-size: 35px;
+  line-height: 60px;
+  padding: 0;
+  margin-right: 10px;
+  max-width: 60%;
+  overflow: hidden;
+  height: 100%;
+  white-space: nowrap;
+}
+
+#right-nav, #right-tools {
+  width: auto;
+  height: 100%;
+  position: relative;
+
+  .fa-fw {
+    line-height: 1.3;
+  }
+}
+
+#userArea {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+}
+
+#langArea {
+  font-size: 90%;
+
+  > label {
+    background: #222;
+    width: auto;
+    display: inline-block;
+    height: 30px;
+    padding: 2px 5px;
+    border-radius: 3px;
+  }
+
+  select {
+    background: none;
+    border: 0;
+    color: white;
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+    padding: 0;
+    font-size: inherit;
+  }
+
+  span {
+    vertical-align: middle;
+  }
+
+}
+
+#lang-select {
+  width: 90px; 
+  font-size: 16px;
+  padding: 4px 20px 4px 28px;
+  margin-right: 15px;
+  background: white url(http://image.flaticon.com/icons/svg/63/63261.svg) no-repeat 6px center;
+  background-size: 18px 18px;
+}
+
+#userArea {
+
+  .userToggle {
+    font-size: 16px;
+    display: inline-block;
+    vertical-align:middle; 
+
+    .fa { display: inline-block; vertical-align: middle; }
+  }  
+}
+
+#userPanel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 250px;
+  height: auto;
+  background: #333;
+  padding: 10px;
+}
+
+#body {
+  width: 100%;
+  height: 100%;
+  padding-top: 60px;
+  padding-left: 265px; //placeholder padding.
+  position: relative;
+}
+
+#sidebar {
+  min-width: 60px;
+  width: auto;
+  max-width: 265px;
+  height: 100%;
+  background: #222;
+  color: gainsboro;
+  padding: 60px 0px 0px;
+  font-size: 16px;
+  position: fixed;
+  top:0;
+  left:0;
+  overflow: hidden;
+  z-index: 1170;
+
+  #menuList {
+    width: 300px;    
+    height: 100%;
+    overflow-y: scroll;
+    padding: 15px 0;
+    padding-right: 15px;
+
+    .fa {
+      font-size: 20px;
+    }  
+
+    div[data-toggle=collapse] {
+      position:relative;
+      padding-right: 25px;
+
+      &:after {
+        content: '\f105';
+        font-family: "FontAwesome";
+        width: 30px;
+        height: 100%;
+        text-align: right;
+        line-height: 22px;
+        position:absolute;
+        right:0;
+        top:0;
+      }
+    }
+
+    div[data-toggle=collapse][aria-expanded=true] {
+      &:after {
+        content: '\f107';
+      }
+    }
+
+    .menu-link {
+      display: block;
+      color: white;
+
+      @extend .actionable;
+
+      &:hover, &:focus, &:hover:focus, &:active {
+        text-decoration: none;
+      }
+    }
+  }
+
+  li {
+    padding: 7px 10px;
+
+    .title {
+      padding-left: 8px;
+      display:inline-block;
+    }
+  }
+
+  .level2 {
+    margin: 5px -10px 0;
+    padding-left: 30px;
+    background: #111;
+  }
+}
+
+#translation-lang {
+  margin-bottom: 20px;
+
+  .btn.disabled {
+    cursor: pointer;
+    cursor: hand;
+    pointer-events: auto;
+  }
+}
+
+#content {
+  padding: 15px 20px 80px;
+  position: relative;
+  min-height: 100%;
+  height: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  left:0;
+  width: 100%;
+  padding: 10px 15px;
+  background: #333;
+  color: white;
+  height: 45px;
+  overflow: hidden;
+}
+
+.table {
+  min-width: 100%;
+
+  th, thead td {
+    vertical-align: bottom;
+  }
+}
