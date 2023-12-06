@@ -39,7 +39,7 @@ $('#menuToggle').on('click', function(){
 });
 
 $('#c-item-table').DataTable( {
-  "ajax": 'https://api.myjson.com/bins/2ztvf',
+  /*"ajax": 'https://api.myjson.com/bins/2ztvf',
   "columns": [
     { "data": "id", "searchable": false, "orderable": false },
     { "data": "item_code"},
@@ -74,7 +74,7 @@ $('#c-item-table').DataTable( {
       type: 'column',
       target: 'tr'
     }
-  },
+  },*/
 } );
 
 $('.content-panel').css({
