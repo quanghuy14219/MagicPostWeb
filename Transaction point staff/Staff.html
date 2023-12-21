@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - UX Draft</title>
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300italic,300,400italic,600,600italic,700,700italic,200,200italic,900,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://cdn.datatables.net/v/bs/dt-1.10.12/r-2.1.0/se-1.2.0/datatables.min.css'>
+<link rel='stylesheet' href='//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css'>
+<link rel='stylesheet' href='https://cdn.rawgit.com/danielfarrell/bootstrap-combobox/master/css/bootstrap-combobox.css'>
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="header">
+
+  <input type="hidden" id="role" value="sales" />
+
+  <div id="menuToggle" class="pull-left">
+    <i class="fa fa-list"></i>
+  </div>  
+
+  <div id="logo" class="pull-left">
+    <span class=""><i class="fa fa-codepen"></i></span><span class="small"> MagicPost</span>
+  </div>
+
+  <div id="right-nav" class="pull-right text-right vcenter">
+
+    <div id="userArea">
+      <button class="btn-unstyled pgutterless userToggle" data-toggle="collapse" data-target="#userPanel"><i class="fa fa-user fa-2x fa-fw"></i></button>
+    </div>
+    &nbsp;&nbsp;
+
+    <select id="lang-select" class="hidden-xs display-inline vmid form-control">
+      <option>EN</option>
+      <option>FR</option>
+      <option>ID</option>
+    </select>
+
+    <div id="userPanel" class="userPanel collapse text-left">
+      
+
+      <br/>
+      <p class="text-right">
+        <span>Jane Realname Doe</span><br/>
+        <span>Transaction point staff</span>
+      </p>
+      <div class="text-right small">
+        <a>Edit Profile</a><br/>
+        <a>Change Password</a>
+      </div>
+      <br/>
+
+      <div id="langArea" class="small pull-right">
+        <label class="">
+          <span>
+            <i class="fa fa-globe"></i> 
+          </span>
+          <select class="form-control display-inline">
+            <option>EN</option>
+            <option>FR</option>
+            <option>ID</option>
+          </select>
+        </label>
+      </div>
+
+      <button class="btn btn-danger btn-xs">Log Out</button>
+
+    </div>
+
+  </div>
+
+  <div id="right-tools" class="hidden-xs pull-right vcenter">
+    <span class="notif-alert display-inline vmid"><i class="fa fa-envelope fa-lg fa-fw"></i></span>
+    &nbsp;&nbsp;&nbsp;
+    <span class="display-inline vmid"><i class="fa fa-sticky-note fa-lg fa-fw"></i></span>
+    &nbsp;&nbsp;&nbsp; 
+  </div>
+
+</div>
+
+<div id="body">
+
+  <div id="sidebar" class="opened">
+
+    <div class="visible-xs-block">
+      <table class="col-xs-12 no-float gutterless text-center">
+        <tr>
+          <td style="padding: 15px 10px;"><span title="Message" class="notif-alert display-inline vmid"><i class="fa fa-envelope fa-lg fa-fw"></i></span></td>
+          <td style="padding: 15px 10px;"><span title="Notes" class="display-inline vmid"><i class="fa fa-sticky-note fa-2x fa-fw"></i></span></td>
+        </tr>
+      </table>
+    </div>
+
+    <ul id="menuList" class="list-unstyled gutterless">
+
+      <li>
+        <a class="menu-link" data-toggle="content-panel" data-target="#c-dashboard">
+          <span><i class="fa fa-dashboard fa-fw"></i></span>
+          <span class="title">Dashboard</span>
+        </a>
+      </li>
+
+      <li>
+        <a class="menu-link" id="sm-item" data-toggle="content-panel" data-target="#c-ship-list">
+          <span><i class="fa fa-book fa-fw"></i></span>
+          <span class="title">Shipping order</span>
+        </a>
+      </li>
+      <li>
+        <span><i class="fa fa-group fa-fw"></i></span>
+        <span class="title">Contacts</span>
+      </li>
+    </ul>
+  </div>
+
+  <div id="content">
+    <!--<div class="alert alert-danger alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <p>
+        General Error / Success Notification goes here. <br/> For forms, it's better to show each error on the form fields instead of here for better user experience.
+      </p>
+    </div>-->
+
+    <div id="c-dashboard" class="content-panel">
+      <h1>Dashboard</h1>
+      <hr/>
+
+      <br/><br/>
+
+      <div >
+      </div>
+    </div>
+
+    <div id="c-ship-list" class="content-panel">
+      <h1>Shipping orders</h1>
+      <hr/>
+
+      <br/>
+      <div>
+        <button id="c-item-new" class="btn btn-success" data-toggle="content-panel" data-target="#c-order-form"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;&nbsp;Add Order</button>
+        <!--<button class="btn btn-info" data-toggle="collapse" data-target="#c-item-filter-opt"><i class="fa fa-filter"></i></button>-->
+      </div>
+
+      <div id="c-item-filter" class="filter-area">
+        <div id="c-item-filter-opt" class="collapse filter-container">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label">
+                Warehouse #
+              </label>
+              <div class="input-group">
+                <input type="text" class="form-control"></input>
+              <div class="input-group-addon">
+                <i class="fa fa-search"></i>
+              </div>              
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label">
+              Item Group
+            </label>
+            <select class="form-control"          >
+              <option>All</option>
+              <option>Raw Material</option>
+              <option>Semi-finished Goods</option>
+              <option>Finished Goods</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="text-right col-xs-12 no-float">
+          <button class="btn btn-primary">Apply Filter</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table id="c-item-table" class="table table-striped">
+        <thead>
+          <tr>
+            <td>Item Code</td>
+            <td>Item Name</td>
+            <td>Quantity</td>
+            <td>Weight</td>
+            <td>Sender</td>
+            <td>Receiver</td>
+            <td>Status</td>
+            <td>Process</td>
+            <td></td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+    <div >
+    </div>
+  </div>
+
+  <div id="c-order-form" class="content-panel">
+    <h1>New Order</h1>
+    <hr/>
+    <br/>
+
+    <div class="form">
+
+      <ul class="responsive-tabs nav nav-tabs hidden-s">
+        <li class="active"><a href="#i-general" data-toggle="tab">General Information</a></li>
+      </ul>
+
+      <div class="tab-content clearfix">
+        <div class="tab-pane active" id="i-general" class="">          
+          <div class="row">
+            <div class="col-sm-6 ">
+              <h4>Sender</h4>
+              <hr/>
+              <div class="form-group">
+                <label class="control-label">Full Name</label>
+                <div class="">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>  
+              <div class="form-group">
+                <label class="control-label">Phone number</label>
+                <div class="">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>  
+              
+
+              
+
+              <div class="form-group hidden">
+                <label class="control-label">Item Name *</label>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <select class="btn-unstyled lang-field-select">
+                      <option>EN</option>
+                      <option>FR</option>
+                      <option>ID</option>
+                    </select>
+                  </div>
+                  <input type="text" class="form-control" placeholder="English Title" value="English Title" />
+                </div>
+              </div>
+
+              
+              
+              <div class="form-group">
+                <label class="control-label">Items</label>
+                <input type="text" class="form-control" placeholder="ITM1009"/>
+              </div>
+              <div class="form-group">
+                <label class="control-label">Quantity</label>
+                <input type="text" class="form-control" placeholder="ITM1009"/>
+              </div>
+              <div class="form-group">
+                <label class="control-label">Weight</label>
+                <input type="text" class="form-control" placeholder="ITM1009"/>
+              </div>
+
+            </div>
+
+            <div class="col-sm-6 ">
+              <h4>Receiver</h4>
+              <hr/>
+              <div class="form-group">
+                <label class="control-label">
+                  Full Name
+                </label>
+                <input class="form-control" type="text" />
+              </div>
+              <div class="form-group">
+                <label class="control-label">
+                  Phone number
+                </label>
+                <input class="form-control" type="text" />
+              </div>
+              <div class="form-group">
+                <label class="control-label">
+                  Address
+                </label>
+                <input class="form-control" type="text" />
+              </div>
+              
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+          <button class="btn btn-success">Save</button>
+          &nbsp;
+          <button class="btn btn-danger">Reset</button>
+        </div>
+
+        <div class="tab-pane" id="4a">
+          <h3>We use css to change the background color of the content to be equal to the tab</h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+</div>
+<!-- partial -->
+  <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js'></script>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+<script src='https://cdn.datatables.net/v/bs/dt-1.10.12/r-2.1.0/se-1.2.0/datatables.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js'></script>
+<script src='https://cdn.rawgit.com/danielfarrell/bootstrap-combobox/master/js/bootstrap-combobox.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
